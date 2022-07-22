@@ -44,7 +44,7 @@ public class Main {
         System.out.println("Conteúdos Concluidos, Luis: " + devLuis.getConteudosConcluiudos());
         System.out.println("XP: " + devLuis.calcularTotalXp() );
 
-        System.out.println("--------------------------------------");
+        System.out.println("----------------------------------");
 
         Dev devSandra = new Dev();
         devSandra.setNome("Sandra");
