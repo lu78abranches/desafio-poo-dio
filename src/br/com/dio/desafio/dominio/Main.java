@@ -4,59 +4,61 @@ import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
-        Curso curso1 = new Curso();
-        curso1.setTitulo("Aprenda Java em 7 Dias");
-        curso1.setDescricao("Java do Zero ao Hacker");
-        curso1.setCargaHoraria(8);
+        Combo combo1 = new Combo();
+        combo1.setItensDoCombo("XBurguer + Batata + Refri");
+        combo1.setDescricao("(Hamburguer bovino 150 gramas, Queijo especial 50 gramas) - (Batata frita artesanal 200 gramas)" +
+                "- (Refrigerante lata 300 ml)");
+        combo1.setValorTotal(45.00);
 
-        Curso curso2 = new Curso();
-        curso2.setTitulo("curso jv ligeirinho ");
-        curso2.setDescricao("JavaScript na tranquilidade");
-        curso2.setCargaHoraria(1);
-
-        Conteudo conteudo = new Curso();
-
-        Mentoria mentoria = new Mentoria();
-        mentoria.setTitulo("mentoria Java do mestre");
-        mentoria.setDescricao("Torne um Jedi do Java");
-        mentoria.setData(LocalDate.now());
-
-      //  System.out.println(curso1);
-       // System.out.println(curso2);
-      //  System.out.println(mentoria);
-
-        Bootcamp bootcamp = new Bootcamp();
-        bootcamp.setNome("Bootcamp Java Developer");
-        bootcamp.setDescricao("Bootcamp em Java");
-        bootcamp.getConteudos().add(curso1);
-        bootcamp.getConteudos().add(curso2);
-        bootcamp.getConteudos().add(mentoria);
+        Combo combo2 = new Combo();
+        combo2.setItensDoCombo("XEgg + Batata + Refri ");
+        combo2.setDescricao("(Hamburguer bovino 150 gramas, Queijo especial 50 gramas, Ovo Frito, Maionese Artesanal) - (Batata frita artesanal 200 gramas)" +
+                "- (Refrigerante lata 300 ml)");
+        combo2.setValorTotal(50.00);
 
 
-        Dev devLuis = new Dev();
-        devLuis.setNome("Luis");
-        devLuis.InscricaoBootcamp(bootcamp);
-        System.out.println("Conteúdos Inscritos, Luis: " + devLuis.getConteudosInscritos());
-        devLuis.progressao();
-        devLuis.progressao();
+        Sobremesa sobremesa = new Sobremesa();
+        sobremesa.setItensDoCombo("Pudim de Leite");
+        sobremesa.setDescricao("Pudim com leite moça artesanal");
+        sobremesa.setData(LocalDate.now());
+
+
+        Hamburgueria seuPedido = new Hamburgueria();
+        seuPedido.setNome("Combo + sobremesa");
+        seuPedido.setDescricao("Escolha um combo mais uma sobremesa");
+        seuPedido.getMenu().add(combo1);
+        seuPedido.getMenu().add(sobremesa);
+
+        Hamburgueria seuPedido2 = new Hamburgueria();
+        seuPedido2.getMenu().add(combo2);
+        seuPedido2.getMenu().add(sobremesa);
+
+
+        Cliente luis = new Cliente();
+        luis.setNome("Luis");
+        luis.fazerPedido(seuPedido);
+        System.out.println("Pedido Feito, Luis: " + luis.getPedidoFeito());
+        luis.pedidoConcluido();
+        luis.pedidoConcluido();
         System.out.println("-");
-        System.out.println("Conteúdos Inscritos, Luis: " + devLuis.getConteudosInscritos());
-        System.out.println("Conteúdos Concluidos, Luis: " + devLuis.getConteudosConcluiudos());
-        System.out.println("XP: " + devLuis.calcularTotalXp() );
+        System.out.println("Pedido Feito, Luis: " + luis.getPedidoFeito());
+        System.out.println("Pedido Retirado, Luis: " + luis.getPedidoRetirado());
+        System.out.println("Valor dos itens: " + "\n" + "Combo 1: " + combo1.getValorTotal() + "\n" +
+                "Sobremesa: " + sobremesa.calcularValor() + "\n" + "Valor a Pagar: R$ " + luis.calcularValorTotal() );
 
         System.out.println("----------------------------------");
 
-        Dev devSandra = new Dev();
-        devSandra.setNome("Sandra");
-        devSandra.InscricaoBootcamp(bootcamp);
-        System.out.println("Conteúdos Inscritos, Sandra: " + devSandra.getConteudosInscritos());
-        devSandra.progressao();
-        devSandra.progressao();
-        devSandra.progressao();
+        Cliente sandra = new Cliente();
+        sandra.setNome("Sandra");
+        sandra.fazerPedido(seuPedido2);
+        System.out.println("Pedido Feito, Sandra: " + sandra.getPedidoFeito());
+        sandra.pedidoConcluido();
+        sandra.pedidoConcluido();
         System.out.println("-");
-        System.out.println("Conteúdos Inscritos, Sandra: " + devSandra.getConteudosInscritos());
-        System.out.println("Conteúdos Concluidos, Sandra: " + devSandra.getConteudosConcluiudos());
-        System.out.println("XP: " + devSandra.calcularTotalXp() );
+        System.out.println("Pedido Feito, Sandra: " + sandra.getPedidoFeito());
+        System.out.println("Pedido Retirado, Sandra: " + sandra.getPedidoRetirado());
+        System.out.println("Valor dos itens: " + "\n" + "Combo 2: " + combo2.getValorTotal() + "\n" +
+                "Sobremesa: " + sobremesa.calcularValor() + "\n" + "Valor a Pagar: R$ " + sandra.calcularValorTotal() );
 
     }
 }

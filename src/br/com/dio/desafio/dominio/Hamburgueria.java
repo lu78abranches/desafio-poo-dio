@@ -6,14 +6,14 @@ import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
 
-public class Bootcamp {
+public class Hamburgueria {
     private String nome;
     private String descricao;
     private final LocalDate dataInicial = LocalDate.now();
     private final LocalDate dataFinal = dataInicial.plusDays(30);
 
-    private Set<Dev> devsInscritos = new HashSet<>();
-    private Set<Conteudo> conteudos = new LinkedHashSet<>();
+    private Set<Cliente> cliente = new HashSet<>();
+    private Set<Menu> menu = new LinkedHashSet<>();
 
     public String getNome() {
         return nome;
@@ -39,32 +39,32 @@ public class Bootcamp {
         return dataFinal;
     }
 
-    public Set<Dev> getDevsInscritos() {
-        return devsInscritos;
+    public Set<Cliente> getCliente() {
+        return cliente;
     }
 
-    public void setDevsInscritos(Set<Dev> devsInscritos) {
-        this.devsInscritos = devsInscritos;
+    public void setCliente(Set<Cliente> devsInscritos) {
+        this.cliente = cliente;
     }
 
-    public Set<Conteudo> getConteudos() {
-        return conteudos;
+    public Set<Menu> getMenu() {
+        return menu;
     }
 
-    public void setConteudos(Set<Conteudo> conteudos) {
-        this.conteudos = conteudos;
+    public void setMenu(Set<Menu> menu) {
+        this.menu = menu;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Bootcamp bootcamp = (Bootcamp) o;
-        return Objects.equals(nome, bootcamp.nome) && Objects.equals(descricao, bootcamp.descricao) && Objects.equals(dataInicial, bootcamp.dataInicial) && Objects.equals(dataFinal, bootcamp.dataFinal) && Objects.equals(devsInscritos, bootcamp.devsInscritos) && Objects.equals(conteudos, bootcamp.conteudos);
+        Hamburgueria bootcamp = (Hamburgueria) o;
+        return Objects.equals(nome, bootcamp.nome) && Objects.equals(descricao, bootcamp.descricao) && Objects.equals(dataInicial, bootcamp.dataInicial) && Objects.equals(dataFinal, bootcamp.dataFinal) && Objects.equals(cliente, bootcamp.cliente) && Objects.equals(menu, bootcamp.menu);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nome, descricao, dataInicial, dataFinal, devsInscritos, conteudos);
+        return Objects.hash(nome, descricao, dataInicial, dataFinal, cliente, menu);
     }
 }

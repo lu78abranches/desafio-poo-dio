@@ -2,12 +2,12 @@ package br.com.dio.desafio.dominio;
 
 import java.time.LocalDate;
 
-public class Mentoria extends Conteudo {
+public class Sobremesa extends Menu {
    private LocalDate data;
 
     @Override
-    public double calcularXp() {
-        return XP_PRADAO + 20;
+    public double calcularValor() {
+        return VALOR_INICIAL + 10.00;
     }
 
 
@@ -21,8 +21,8 @@ public class Mentoria extends Conteudo {
 
     @Override
     public String toString() {
-        return "Mentoria{" +
-                "titulo='" + getTitulo() + '\'' +
+        return "Sobremesa{" +
+                "titulo='" + getItensDoCombo() + '\'' +
                 ", descricao='" + getDescricao() + '\'' +
                 ", data=" + data +
                 '}';
